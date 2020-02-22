@@ -21,5 +21,5 @@ Apply the pooling procedure on the entire image, given an image batch. This is e
 ### Input Ordering
 
 This code supports the Thaeno version if you change the input order
-Tensorflow input order: `(samples, rows, cols, channels)` (image_data_format='channels_last').
-Theano input order: `(samples, channels, rows, cols)` (image_data_format='channels_first').
+- Tensorflow input order: `(samples, rows, cols, channels)` (image_data_format='channels_last').
+- Theano input order: `(samples, channels, rows, cols)` (image_data_format='channels_first').
