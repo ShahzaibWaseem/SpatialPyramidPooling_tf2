@@ -21,36 +21,18 @@ def makeModel():
 
 	# MODEL 1
 	# uses tensorflow ordering. Note that we leave the image size as None to allow multiple image sizes
-	model.add(Convolution2D(32, 3, 3, padding='same', input_shape=(None, None, NUM_CHANNELS)))
+	model.add(Convolution2D(32, 3, NUM_CHANNELS, padding='same', input_shape=(None, None, NUM_CHANNELS)))
 	model.add(Activation('relu'))
-	model.add(Convolution2D(32, 3, 3, padding='same'))
+	model.add(Convolution2D(32, 3, NUM_CHANNELS, padding='same'))
 	model.add(Activation('relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2), padding='same'))
-	model.add(Convolution2D(64, 3, 3, padding='same'))
+	model.add(Convolution2D(64, 3, NUM_CHANNELS, padding='same'))
 	model.add(Activation('relu'))
-	model.add(Convolution2D(64, 3, 3, padding='same'))
+	model.add(Convolution2D(64, 3, NUM_CHANNELS, padding='same'))
 	model.add(Activation('relu'))
 	model.add(SpatialPyramidPooling([1, 2, 4]))
 	model.add(Dense(NUM_CLASSES))
 	model.add(Activation('softmax'))
-
-	# MODEL 2
-	# uses tensorflow ordering. Note that we leave the image size as None to allow multiple image sizes
-	# model.add(Convolution2D(96, 11, 11, padding='same', input_shape=(None, None, NUM_CHANNELS), activation='relu'))
-	# model.add(MaxPooling2D(pool_size=(2, 2), padding='same'))
-	# model.add(Convolution2D(32, 3, 3, padding='same', activation='relu'))
-	# model.add(MaxPooling2D(pool_size=(2, 2), padding='same'))
-	# model.add(Convolution2D(64, 3, 3, padding='same', activation='relu'))
-	# model.add(MaxPooling2D(pool_size=(2, 2), padding='same'))
-	# model.add(Convolution2D(64, 3, 3, padding='same', activation='relu'))
-	# model.add(MaxPooling2D(pool_size=(2, 2), padding='same'))
-	# model.add(SpatialPyramidPooling([1, 2, 4]))
-	# model.add(Dense(4096, activation='relu', name='dense_1'))
-	# model.add(Dropout(0.5))
-	# model.add(Dense(4096, activation='relu', name='dense_2'))
-	# model.add(Dropout(0.5))
-	# model.add(Dense(NUM_CLASSES, name='dense_3'))
-	# model.add(Activation('softmax'))
 
 	return model
 
